@@ -5,7 +5,7 @@
 // 
 // Crie uma query que retorne o nome de todos os documentos em que o campo ultimaModificacao existe
 db.produtos.updateOne(
-    { nome: { $eq: "Big Mac" } },
-    { $set: { ultimaModificacao: { $timestamp: true } } },
+    { nome: "Big Mac" },
+    { $set: { ultimaModificacao: new Date() } },
 );
-db.produtos.find({ ultimaModificacao: { $exists: 1 } }, { nome: 1, ultimaModificacao: 1, _id: 0 });
+db.produtos.find({ ultimaModificacao: { $exists: 1 } }, { nome: 1, _id: 0 });
